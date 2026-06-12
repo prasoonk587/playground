@@ -13,14 +13,25 @@ export const AddTodoItem: FC<IAddTodoItemProps> = ({ addItem }) => {
     };
 
     const onAddItem = () => {
+        if (!description) return;
         addItem({ description: description, isCompleted: false });
         setDescription(null);
     };
 
     return (
-        <div style={{ display: 'flex', padding: '20px 0' }}>
-            <input placeholder="Task Description" value={description || ''} onChange={onChange} />
-            <button onClick={onAddItem}>Add Item</button>
+        <div className="flex gap-2 mb-6">
+            <input
+                className="flex-1 px-3 py-2 text-sm border border-gray-300 rounded-md outline-none focus:ring-2 focus:ring-blue-400"
+                placeholder="Task Description"
+                value={description || ''}
+                onChange={onChange}
+            />
+            <button
+                className="px-4 py-2 text-sm font-medium text-white bg-blue-500 rounded-md hover:bg-blue-600 active:scale-95 transition-all"
+                onClick={onAddItem}
+            >
+                Add Item
+            </button>
         </div>
     );
 };

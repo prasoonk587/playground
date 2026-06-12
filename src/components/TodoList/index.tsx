@@ -1,6 +1,6 @@
-import { FC, useState } from "react";
-import { AddTodoItem } from "./AddTodoItem";
-import { TodoItem } from "./TodoItem";
+import { FC, useState } from 'react';
+import { AddTodoItem } from './AddTodoItem';
+import { TodoItem } from './TodoItem';
 
 export interface ITodoItem {
     description: string | null;
@@ -8,27 +8,34 @@ export interface ITodoItem {
 }
 
 export const TodoList = () => {
-    const [todoItems, setTodoItems] =  useState<ITodoItem[]>([]);
+    const [todoItems, setTodoItems] = useState<ITodoItem[]>([]);
 
     const addItem = (item: ITodoItem) => {
-        setTodoItems([item, ...todoItems])
-    }
+        setTodoItems([item, ...todoItems]);
+    };
 
     const toggleComplete = (index: number) => {
-        setTodoItems(
-            (prev) => prev.map((item, i) => {
-                if(i !== index) return item;
-                return {...item, isCompleted: !item.isCompleted}
+        setTodoItems((prev) =>
+            prev.map((item, i) => {
+                if (i !== index) return item;
+                return { ...item, isCompleted: !item.isCompleted };
             })
-        )
-    }
+        );
+    };
 
-    return <div style={{padding: 20}}>
-        <AddTodoItem addItem={addItem} />
-        <div>
-            {
-                todoItems.map((item, index) => <TodoItem item={item} index={index} toggleComplete={toggleComplete} /> )
-            }
+    return (
+        <div style={{ padding: 20 }}>
+            <AddTodoItem addItem={addItem} />
+            <div>
+                {todoItems.map((item, index) => (
+                    <TodoItem
+                        key={index}
+                        item={item}
+                        index={index}
+                        toggleComplete={toggleComplete}
+                    />
+                ))}
+            </div>
         </div>
-    </div>
-}
+    );
+};
