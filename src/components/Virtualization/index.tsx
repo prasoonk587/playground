@@ -1,12 +1,10 @@
-import { ReactNode, useCallback, useMemo, useRef, useState } from 'react';
-import { start } from 'repl';
+import { ReactNode, useCallback, useEffect, useMemo, useRef, useState } from 'react';
 
 const ITEM_HEIGHT = 50;
-const CONTAINER_HEIGHT = 400;
-const OVERSCAN = 4;
+const OVERSCAN = 0;
 
 // Scroll height = ITEM_HEIGHT * Item Length
-// Items need to render = (CONTAINER_HEIGHT / ITEM_HEIGHT ) + OVERSCAN;
+// Items need to render = (containerHeight / ITEM_HEIGHT) + OVERSCAN
 // Start index of rendered element = Math.floor(scroll position / ITEM_HEIGHT)
 
 interface VirtualListProps<T> {
@@ -16,13 +14,23 @@ interface VirtualListProps<T> {
 
 export const VirtualList = <T,>({ items, renderItem }: VirtualListProps<T>) => {
     const [scrollTop, setScrollTop] = useState(0);
+    const [containerHeight, setContainerHeight] = useState(0);
     const containerRef = useRef<HTMLDivElement>(null);
+
+    useEffect(() => {
+        if (!containerRef.current) return;
+        const observer = new ResizeObserver((entries) => {
+            setContainerHeight(entries[0].contentRect.height);
+        });
+        observer.observe(containerRef.current);
+        return () => observer.disconnect();
+    }, []);
 
     const totalHeight = ITEM_HEIGHT * items.length;
 
     const startIndex = Math.max(0, Math.floor(scrollTop / ITEM_HEIGHT - OVERSCAN));
 
-    const visibleCount = Math.ceil(CONTAINER_HEIGHT / ITEM_HEIGHT);
+    const visibleCount = Math.ceil(containerHeight / ITEM_HEIGHT);
 
     const endIndex = Math.min(items.length - 1, startIndex + visibleCount + OVERSCAN * 2);
 
@@ -39,8 +47,7 @@ export const VirtualList = <T,>({ items, renderItem }: VirtualListProps<T>) => {
     return (
         <div
             ref={containerRef}
-            className="overflow-y-auto border w-[400px]"
-            style={{ height: CONTAINER_HEIGHT }}
+            className="overflow-y-auto border w-[800px] h-full"
             onScroll={handleScroll}
         >
             <div
