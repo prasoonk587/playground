@@ -5,6 +5,7 @@ const navItems = [
     { label: 'Tic Tac Toe', path: '/tictactoe' },
     { label: 'Autocomplete', path: '/autocomplete' },
     { label: 'Virtual List', path: '/virtual-list' },
+    { label: 'Logo Marque', path: '/logo-marque' },
 ];
 
 export const Layout = () => {
