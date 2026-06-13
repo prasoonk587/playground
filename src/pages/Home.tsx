@@ -4,6 +4,7 @@ const components = [
     { name: 'Todo List', path: '/todo' },
     { name: 'Tic Tac Toe', path: '/tictactoe' },
     { name: 'Autocomplete', path: '/autocomplete' },
+    { name: 'Virtual List - Fixed Height', path: '/virtual-list' },
 ];
 
 export const Home = () => {
