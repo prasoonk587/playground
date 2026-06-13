@@ -6,6 +6,7 @@ const navItems = [
     { label: 'Autocomplete', path: '/autocomplete' },
     { label: 'Virtual List', path: '/virtual-list' },
     { label: 'Logo Marque', path: '/logo-marque' },
+    { label: 'Toast', path: '/toast' },
 ];
 
 export const Layout = () => {
