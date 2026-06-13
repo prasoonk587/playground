@@ -11,7 +11,7 @@ interface ITicTacToe {
 
 const getInitialState = (n: number) => Array.from({ length: n }, () => Array(n).fill(null));
 
-export const TicTacToe: FC<ITicTacToe> = ({ n = 10 }) => {
+export const TicTacToe: FC<ITicTacToe> = ({ n = 3 }) => {
     const [gridState, setGridState] = useState<(PLAYERS | null)[][]>(getInitialState(n));
     const [activePlayer, setActivePlayer] = useState<PLAYERS>(PLAYERS.P1);
     const [outcome, setOutcome] = useState<PLAYERS | 'draw' | null>(null);
@@ -87,34 +87,45 @@ export const TicTacToe: FC<ITicTacToe> = ({ n = 10 }) => {
     };
 
     return (
-        <div>
-            {outcome && (
-                <div style={{ display: 'flex' }}>
-                    <p>{outcome === 'draw' ? 'Its Draw' : `${outcome} won the game`}</p>
-                    <button onClick={onReset}>Reset</button>
-                </div>
-            )}
-            {gridState.map((row, i) => {
-                return (
-                    <div style={{ display: 'flex' }}>
-                        {row.map((cell, j) => {
-                            return (
-                                <div
-                                    onClick={() => onCellClick(i, j)}
-                                    style={{
-                                        height: 50,
-                                        width: 50,
-                                        border: 'solid 1px',
-                                        padding: 10,
-                                    }}
-                                >
-                                    {cell}
-                                </div>
-                            );
-                        })}
+        <div className="flex justify-center items-center min-h-screen">
+            <div>
+                {outcome && (
+                    <div className="flex justify-center gap-2 mb-4 items-center">
+                        <div>
+                            <p>{outcome === 'draw' ? 'Its Draw' : `${outcome} won the game`}</p>
+                        </div>
+                        <div>
+                            <button
+                                className="border rounded-md px-4 py-1 text-sm"
+                                onClick={onReset}
+                            >
+                                Reset
+                            </button>
+                        </div>
                     </div>
-                );
-            })}
+                )}
+                {gridState.map((row, i) => {
+                    return (
+                        <div style={{ display: 'flex' }}>
+                            {row.map((cell, j) => {
+                                return (
+                                    <div
+                                        onClick={() => onCellClick(i, j)}
+                                        style={{
+                                            height: 50,
+                                            width: 50,
+                                            border: 'solid 1px',
+                                            padding: 10,
+                                        }}
+                                    >
+                                        {cell}
+                                    </div>
+                                );
+                            })}
+                        </div>
+                    );
+                })}
+            </div>
         </div>
     );
 };
