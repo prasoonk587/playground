@@ -1,37 +1,24 @@
 import { FC, useState } from 'react';
 import { AddTodoItem } from './AddTodoItem';
 import { TodoItem } from './TodoItem';
-
-export interface ITodoItem {
-    description: string | null;
-    isCompleted: boolean;
-}
+import { useTodoStore } from './useTodoStore';
 
 export const TodoList = () => {
-    const [todoItems, setTodoItems] = useState<ITodoItem[]>([]);
+    const { addTodoItem, updateTodoItem, todoItems } = useTodoStore();
 
-    const addItem = (item: ITodoItem) => {
-        setTodoItems([item, ...todoItems]);
-    };
-
-    const toggleComplete = (index: number) => {
-        setTodoItems((prev) =>
-            prev.map((item, i) => {
-                if (i !== index) return item;
-                return { ...item, isCompleted: !item.isCompleted };
-            })
-        );
+    const toggleComplete = (id: number, isCompleted: boolean) => {
+        updateTodoItem({ id, isCompleted });
     };
 
     return (
         <div style={{ padding: 20 }}>
-            <AddTodoItem addItem={addItem} />
+            <AddTodoItem addItem={addTodoItem} />
             <div>
                 {todoItems.map((item, index) => (
                     <TodoItem
-                        key={index}
+                        key={item.id}
                         item={item}
-                        index={index}
+                        id={item.id}
                         toggleComplete={toggleComplete}
                     />
                 ))}

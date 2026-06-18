@@ -1,5 +1,5 @@
-import { FC, useState } from 'react';
-import { ITodoItem } from '.';
+import { FC, KeyboardEvent, useState } from 'react';
+import { ITodoItem, useTodoStore } from './useTodoStore';
 
 interface IAddTodoItemProps {
     addItem: (item: ITodoItem) => void;
@@ -7,6 +7,7 @@ interface IAddTodoItemProps {
 
 export const AddTodoItem: FC<IAddTodoItemProps> = ({ addItem }) => {
     const [description, setDescription] = useState<string | null>(null);
+    const { addTodoItem } = useTodoStore();
 
     const onChange = (e: any) => {
         setDescription(e.target.value);
@@ -14,8 +15,14 @@ export const AddTodoItem: FC<IAddTodoItemProps> = ({ addItem }) => {
 
     const onAddItem = () => {
         if (!description) return;
-        addItem({ description: description, isCompleted: false });
+        addTodoItem({ description: description, isCompleted: false });
         setDescription(null);
+    };
+
+    const onKeyDown = (e: KeyboardEvent<HTMLInputElement>) => {
+        if (e.key === 'Enter') {
+            onAddItem();
+        }
     };
 
     return (
@@ -25,6 +32,7 @@ export const AddTodoItem: FC<IAddTodoItemProps> = ({ addItem }) => {
                 placeholder="Task Description"
                 value={description || ''}
                 onChange={onChange}
+                onKeyDown={onKeyDown}
             />
             <button
                 className="px-4 py-2 text-sm font-medium text-white bg-blue-500 rounded-md hover:bg-blue-600 active:scale-95 transition-all"

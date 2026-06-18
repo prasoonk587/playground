@@ -1,18 +1,18 @@
 import { FC } from 'react';
-import { ITodoItem } from '.';
+import { ITodoItem } from './useTodoStore';
 
 interface ITodoItemProps {
-    index: number;
+    id: number;
     item: ITodoItem;
-    toggleComplete: (index: number) => void;
+    toggleComplete: (index: number, isCompleted: boolean) => void;
 }
-export const TodoItem: FC<ITodoItemProps> = ({ index, item, toggleComplete }) => {
+export const TodoItem: FC<ITodoItemProps> = ({ id, item, toggleComplete }) => {
     return (
         <div className="flex items-center gap-3 px-3 py-2.5 bg-white border border-gray-200 rounded-md">
             <input
                 type="checkbox"
                 checked={item.isCompleted}
-                onClick={() => toggleComplete(index)}
+                onClick={() => toggleComplete(id, !item.isCompleted)}
             />
 
             <span
