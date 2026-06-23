@@ -7,8 +7,11 @@ import { TodoList } from './components/TodoList';
 import { VirtualListImplementation } from './components/Virtualization';
 import { Home } from './pages/Home';
 import { ToastImplementation, ToastProvider } from './components/Toast';
+import { Assignment } from './components/Assignment';
+import { AccordionImplementation } from './components/Accordion';
 
 function App() {
+    // return <Assignment />;
     return (
         <ToastProvider>
             <BrowserRouter>
@@ -21,6 +24,7 @@ function App() {
                         <Route path="/virtual-list" element={<VirtualListImplementation />} />
                         <Route path="/logo-marque" element={<LogoMarque />} />
                         <Route path="/toast" element={<ToastImplementation />} />
+                        <Route path="/accordion" element={<AccordionImplementation />} />
                     </Route>
                 </Routes>
             </BrowserRouter>

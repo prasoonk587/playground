@@ -7,6 +7,7 @@ const navItems = [
     { label: 'Virtual List', path: '/virtual-list' },
     { label: 'Logo Marque', path: '/logo-marque' },
     { label: 'Toast', path: '/toast' },
+    { label: 'Accordion', path: '/accordion' },
 ];
 
 export const Layout = () => {
