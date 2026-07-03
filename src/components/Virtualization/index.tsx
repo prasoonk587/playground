@@ -1,5 +1,6 @@
 import React, { FC, ReactNode, useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { componentLogger } from '../../hoc/componentLogger';
+import { errorBoundary } from '../../hoc/errorBoundary';
 
 const ITEM_HEIGHT = 50;
 const OVERSCAN = 0;
@@ -28,6 +29,10 @@ const VirtualListBase: FC<VirtualListProps> = ({ items, renderItem }) => {
         observer.observe(containerRef.current);
         return () => observer.disconnect();
     }, []);
+
+    // useEffect(() => {
+    //     throw Error('cnc');
+    // }, []);
 
     const totalHeight = ITEM_HEIGHT * items.length;
 
@@ -78,7 +83,9 @@ const VirtualListBase: FC<VirtualListProps> = ({ items, renderItem }) => {
     );
 };
 
-export const VirtualList = componentLogger<VirtualListProps>(VirtualListBase);
+export const VirtualList = errorBoundary<VirtualListProps>(
+    componentLogger<VirtualListProps>(VirtualListBase)
+);
 
 export const VirtualListImplementation = () => {
     return (
