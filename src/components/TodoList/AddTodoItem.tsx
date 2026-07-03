@@ -9,7 +9,7 @@ export const AddTodoItem: FC<IAddTodoItemProps> = ({ addItem }) => {
     const [description, setDescription] = useState<string | null>(null);
     const { addTodoItem } = useTodoStore();
 
-    const onChange = (e: any) => {
+    const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         setDescription(e.target.value);
     };
 

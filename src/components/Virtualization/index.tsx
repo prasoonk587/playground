@@ -1,4 +1,5 @@
-import { ReactNode, useCallback, useEffect, useMemo, useRef, useState } from 'react';
+import React, { FC, ReactNode, useCallback, useEffect, useMemo, useRef, useState } from 'react';
+import { componentLogger } from '../../hoc/componentLogger';
 
 const ITEM_HEIGHT = 50;
 const OVERSCAN = 0;
@@ -7,12 +8,14 @@ const OVERSCAN = 0;
 // Items need to render = (containerHeight / ITEM_HEIGHT) + OVERSCAN
 // Start index of rendered element = Math.floor(scroll position / ITEM_HEIGHT)
 
-interface VirtualListProps<T> {
+interface VirtualListPropsBase<T> {
     items: T[];
     renderItem: (item: T, index: number) => ReactNode;
 }
 
-export const VirtualList = <T,>({ items, renderItem }: VirtualListProps<T>) => {
+type VirtualListProps = VirtualListPropsBase<any>;
+
+const VirtualListBase: FC<VirtualListProps> = ({ items, renderItem }) => {
     const [scrollTop, setScrollTop] = useState(0);
     const [containerHeight, setContainerHeight] = useState(0);
     const containerRef = useRef<HTMLDivElement>(null);
@@ -74,6 +77,8 @@ export const VirtualList = <T,>({ items, renderItem }: VirtualListProps<T>) => {
         </div>
     );
 };
+
+export const VirtualList = componentLogger<VirtualListProps>(VirtualListBase);
 
 export const VirtualListImplementation = () => {
     return (

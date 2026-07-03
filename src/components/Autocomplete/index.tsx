@@ -59,7 +59,7 @@ export const AutoComplete = () => {
         setOpen(false);
     };
 
-    const handleKeyDown = (e: KeyboardEvent<HTMLInputElement>) => {
+    const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
         switch (e.key) {
             case 'ArrowDown':
                 e.preventDefault();
