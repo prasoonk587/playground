@@ -1,6 +1,11 @@
 import { NavLink, Outlet } from 'react-router-dom';
 
-const navItems = [
+interface NavItem {
+    label: string;
+    path: string;
+}
+
+export const navItems: NavItem[] = [
     { label: 'Todo List', path: '/todo' },
     { label: 'Tic Tac Toe', path: '/tictactoe' },
     { label: 'Autocomplete', path: '/autocomplete' },
@@ -8,6 +13,7 @@ const navItems = [
     { label: 'Logo Marque', path: '/logo-marque' },
     { label: 'Toast', path: '/toast' },
     { label: 'Accordion', path: '/accordion' },
+    { label: 'Modal', path: '/modal' },
 ];
 
 export const Layout = () => {
