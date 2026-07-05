@@ -14,6 +14,7 @@ export const navItems: NavItem[] = [
     { label: 'Toast', path: '/toast' },
     { label: 'Accordion', path: '/accordion' },
     { label: 'Modal', path: '/modal' },
+    { label: 'OTP Input', path: '/otp' },
 ];
 
 export const Layout = () => {

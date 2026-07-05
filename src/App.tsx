@@ -10,6 +10,7 @@ import { ToastImplementation, ToastProvider } from './components/Toast';
 import { Assignment } from './components/Assignment';
 import { AccordionImplementation } from './components/Accordion';
 import { ModalPage } from './components/Modal';
+import { OTPInput, OTPPage } from './components/OTPInput';
 
 function App() {
     // return <Assignment />;
@@ -27,6 +28,7 @@ function App() {
                         <Route path="/toast" element={<ToastImplementation />} />
                         <Route path="/accordion" element={<AccordionImplementation />} />
                         <Route path="/modal" element={<ModalPage />} />
+                        <Route path="/otp" element={<OTPPage />} />
                     </Route>
                 </Routes>
             </BrowserRouter>
