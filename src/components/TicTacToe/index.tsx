@@ -43,8 +43,9 @@ export const TicTacToe: FC<ITicTacToe> = ({ n = 3 }) => {
                 }
             }
 
+            // check for diagonal righttop-leftbottom
             for (let i = 0; i < n; i++) {
-                const first = gridState[0][n];
+                const first = gridState[0][n - 1];
                 if (first !== null && gridState.every((row, i) => row[n - i - 1] === first)) {
                     return first;
                 }
