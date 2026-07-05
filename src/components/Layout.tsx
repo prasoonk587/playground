@@ -15,6 +15,7 @@ export const navItems: NavItem[] = [
     { label: 'Accordion', path: '/accordion' },
     { label: 'Modal', path: '/modal' },
     { label: 'OTP Input', path: '/otp' },
+    { label: 'Rating', path: '/rating' },
 ];
 
 export const Layout = () => {

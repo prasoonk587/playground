@@ -11,6 +11,7 @@ import { Assignment } from './components/Assignment';
 import { AccordionImplementation } from './components/Accordion';
 import { ModalPage } from './components/Modal';
 import { OTPInput, OTPPage } from './components/OTPInput';
+import { RatingPage } from './components/Rating';
 
 function App() {
     // return <Assignment />;
@@ -29,6 +30,7 @@ function App() {
                         <Route path="/accordion" element={<AccordionImplementation />} />
                         <Route path="/modal" element={<ModalPage />} />
                         <Route path="/otp" element={<OTPPage />} />
+                        <Route path="/rating" element={<RatingPage />} />
                     </Route>
                 </Routes>
             </BrowserRouter>
