@@ -36,13 +36,13 @@ export const Input: FC<InputProps> = ({
     return (
         <div className="flex flex-col gap-1">
             {label && (
-                <label htmlFor={id} className="text-sm font-medium text-neutral-700">
+                <label htmlFor={id} className="text-sm font-medium text-foreground">
                     {label}
                 </label>
             )}
             <div className="relative">
                 {leftIcon && (
-                    <span className="absolute inset-y-0 left-0 flex items-center pl-3 text-neutral-400 pointer-events-none">
+                    <span className="absolute inset-y-0 left-0 flex items-center pl-3 text-muted-foreground pointer-events-none">
                         {leftIcon}
                     </span>
                 )}
@@ -54,18 +54,18 @@ export const Input: FC<InputProps> = ({
                         ${borderClass}
                         ${leftIcon ? 'pl-9' : ''}
                         ${rightIcon ? 'pr-9' : ''}
-                        ${disabled ? 'opacity-50 cursor-not-allowed bg-neutral-50' : 'bg-white'}
+                        ${disabled ? 'opacity-50 cursor-not-allowed bg-muted' : 'bg-background'}
                         ${className}`}
                     {...props}
                 />
                 {rightIcon && (
-                    <span className="absolute inset-y-0 right-0 flex items-center pr-3 text-neutral-400 pointer-events-none">
+                    <span className="absolute inset-y-0 right-0 flex items-center pr-3 text-muted-foreground pointer-events-none">
                         {rightIcon}
                     </span>
                 )}
             </div>
             {helperText && (
-                <p className={`text-xs ${error ? 'text-danger-600' : 'text-neutral-500'}`}>
+                <p className={`text-xs ${error ? 'text-danger-600' : 'text-muted-foreground'}`}>
                     {helperText}
                 </p>
             )}

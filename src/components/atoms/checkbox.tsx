@@ -33,7 +33,7 @@ export const Checkbox: FC<CheckboxProps> = ({
                 className={`h-4 w-4 rounded border-neutral-300 accent-primary-600 cursor-pointer disabled:cursor-not-allowed ${className}`}
                 {...props}
             />
-            {label && <span className="text-sm text-neutral-700">{label}</span>}
+            {label && <span className="text-sm text-foreground">{label}</span>}
         </label>
     );
 };

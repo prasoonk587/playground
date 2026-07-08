@@ -1,4 +1,8 @@
 import { NavLink, Outlet } from 'react-router-dom';
+import { cn } from '@/lib/utils';
+import { buttonVariants } from '@/components/atoms/button';
+import { Icon } from '@/components/atoms/icon';
+import { useTheme } from '@/hooks/useTheme';
 
 interface NavItem {
     label: string;
@@ -20,30 +24,47 @@ export const navItems: NavItem[] = [
 ];
 
 export const Layout = () => {
+    const { theme, toggle } = useTheme();
+
     return (
-        <div className="flex min-h-screen">
-            <nav className="w-52 shrink-0 bg-gray-900 text-gray-300 flex flex-col py-6 px-3 gap-1">
-                <p className="text-xs font-semibold uppercase tracking-widest text-gray-500 px-3 mb-3">
+        <div className="flex min-h-screen bg-background">
+            <aside className="fixed top-0 left-0 h-screen w-56 border-r border-sidebar-border bg-sidebar flex flex-col py-4 px-2 z-10">
+                <p className="px-3 py-2 mb-1 text-xs font-semibold uppercase tracking-widest text-muted-foreground">
                     Components
                 </p>
-                {navItems.map((item) => (
-                    <NavLink
-                        key={item.path}
-                        to={item.path}
-                        end={item.path === '/'}
-                        className={({ isActive }) =>
-                            `rounded-lg px-3 py-2 text-sm transition-colors ${
-                                isActive
-                                    ? 'bg-gray-700 text-white font-medium'
-                                    : 'hover:bg-gray-800 hover:text-white'
-                            }`
-                        }
+                <nav className="flex-1 flex flex-col gap-0.5 overflow-y-auto">
+                    {navItems.map((item) => (
+                        <NavLink
+                            key={item.path}
+                            to={item.path}
+                            end={item.path === '/'}
+                            className={({ isActive }) =>
+                                cn(
+                                    buttonVariants({ variant: 'ghost', size: 'sm' }),
+                                    'w-full justify-start font-normal text-sidebar-foreground',
+                                    isActive &&
+                                        'bg-sidebar-accent text-sidebar-accent-foreground font-medium'
+                                )
+                            }
+                        >
+                            {item.label}
+                        </NavLink>
+                    ))}
+                </nav>
+                <div className="border-t border-sidebar-border pt-2 mt-2">
+                    <button
+                        onClick={toggle}
+                        className={cn(
+                            buttonVariants({ variant: 'ghost', size: 'sm' }),
+                            'w-full justify-start gap-2 font-normal text-sidebar-foreground'
+                        )}
                     >
-                        {item.label}
-                    </NavLink>
-                ))}
-            </nav>
-            <main className="flex-1 overflow-auto">
+                        <Icon name={theme === 'dark' ? 'sun' : 'moon'} size={15} />
+                        {theme === 'dark' ? 'Light mode' : 'Dark mode'}
+                    </button>
+                </div>
+            </aside>
+            <main className="ml-56 flex-1 overflow-auto">
                 <Outlet />
             </main>
         </div>

@@ -24,9 +24,9 @@ interface HeadingProps extends HTMLAttributes<HTMLHeadingElement> {
 
 const textVariantStyles: Record<TextVariant, string> = {
     body: '',
-    caption: 'text-neutral-500',
+    caption: 'text-muted-foreground',
     label: 'font-medium uppercase tracking-wide',
-    code: 'font-mono bg-neutral-100 rounded px-1 py-0.5',
+    code: 'font-mono bg-muted rounded px-1 py-0.5',
 };
 
 const textSizeStyles: Record<TextSize, string> = {
@@ -64,7 +64,7 @@ export const Text: FC<TextProps> = ({
 }) => {
     return (
         <Tag
-            className={`text-neutral-900 ${textSizeStyles[size]} ${textVariantStyles[variant]} ${muted ? 'text-neutral-500' : ''} ${truncate ? 'truncate' : ''} ${className}`}
+            className={`text-foreground ${textSizeStyles[size]} ${textVariantStyles[variant]} ${muted ? 'text-muted-foreground' : ''} ${truncate ? 'truncate' : ''} ${className}`}
             {...(props as any)}
         >
             {children}
@@ -84,7 +84,7 @@ export const Heading: FC<HeadingProps> = ({
     const resolvedSize = size ?? Tag;
     return (
         <Tag
-            className={`text-neutral-900 ${headingSizeStyles[resolvedSize]} ${fontWeightStyles[weight]} ${muted ? 'text-neutral-500' : ''} ${className}`}
+            className={`text-foreground ${headingSizeStyles[resolvedSize]} ${fontWeightStyles[weight]} ${muted ? 'text-muted-foreground' : ''} ${className}`}
             {...props}
         >
             {children}

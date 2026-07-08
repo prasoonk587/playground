@@ -16,7 +16,7 @@ export const Radio: FC<RadioProps> = ({ label, className = '', disabled, id, ...
                 className={`h-4 w-4 border-neutral-300 accent-primary-600 cursor-pointer disabled:cursor-not-allowed ${className}`}
                 {...props}
             />
-            {label && <span className="text-sm text-neutral-700">{label}</span>}
+            {label && <span className="text-sm text-foreground">{label}</span>}
         </label>
     );
 };

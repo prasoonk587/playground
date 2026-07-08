@@ -1,6 +1,6 @@
 import { FC } from 'react';
 
-export type IconName = 'star-filled' | 'star-outline' | 'chevron-down' | 'spinner';
+export type IconName = 'star-filled' | 'star-outline' | 'chevron-down' | 'spinner' | 'sun' | 'moon';
 
 interface IconProps {
     name: IconName;

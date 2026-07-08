@@ -36,7 +36,7 @@ export const Select: FC<SelectProps> = ({
     return (
         <div className="flex flex-col gap-1">
             {label && (
-                <label htmlFor={id} className="text-sm font-medium text-neutral-700">
+                <label htmlFor={id} className="text-sm font-medium text-foreground">
                     {label}
                 </label>
             )}
@@ -63,7 +63,7 @@ export const Select: FC<SelectProps> = ({
                 </span>
             </div>
             {helperText && (
-                <p className={`text-xs ${error ? 'text-danger-600' : 'text-neutral-500'}`}>
+                <p className={`text-xs ${error ? 'text-danger-600' : 'text-muted-foreground'}`}>
                     {helperText}
                 </p>
             )}
