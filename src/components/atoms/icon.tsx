@@ -11,7 +11,7 @@ interface IconProps {
 export const Icon: FC<IconProps> = ({ name, size = 24, className }) => {
     return (
         <svg width={size} height={size} className={className} aria-hidden="true" focusable="false">
-            <use href={`/images/icons.svg#icon-${name}`} />
+            <use href={`${process.env.PUBLIC_URL}/images/icons.svg#icon-${name}`} />
         </svg>
     );
 };
