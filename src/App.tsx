@@ -13,6 +13,7 @@ import { DesignSystem } from './pages/DesignSystem';
 import { ModalPage } from './components/Modal';
 import { OTPInput, OTPPage } from './components/OTPInput';
 import { RatingPage } from './components/Rating';
+import { LazyImagePage } from './components/LazyImage';
 
 function App() {
     // return <Assignment />;
@@ -33,6 +34,7 @@ function App() {
                         <Route path="/modal" element={<ModalPage />} />
                         <Route path="/otp" element={<OTPPage />} />
                         <Route path="/rating" element={<RatingPage />} />
+                        <Route path="/lazy-image" element={<LazyImagePage />} />
                     </Route>
                 </Routes>
             </BrowserRouter>
