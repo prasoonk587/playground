@@ -1,4 +1,5 @@
 import { ReactNode, useState } from 'react';
+import { Icon } from '../atoms/icon';
 
 interface AccordionItem {
     title: string;
@@ -9,17 +10,6 @@ interface AccordionItem {
 interface AccordionProps {
     items: AccordionItem[];
 }
-
-const ChevronIcon = ({ open }: { open: boolean }) => (
-    <svg
-        className={`w-4 h-4 transition-transform duration-200 ${open ? 'rotate-180' : ''}`}
-        fill="none"
-        stroke="currentColor"
-        viewBox="0 0 24 24"
-    >
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-    </svg>
-);
 
 export const Accordion = ({ items }: AccordionProps) => {
     const [openIndexes, setOpenIndexes] = useState<Set<number>>(
@@ -43,7 +33,11 @@ export const Accordion = ({ items }: AccordionProps) => {
                         onClick={() => toggle(index)}
                     >
                         {item.title}
-                        <ChevronIcon open={openIndexes.has(index)} />
+                        <Icon
+                            name="chevron-down"
+                            size={16}
+                            className={`transition-transform duration-200 ${openIndexes.has(index) ? 'rotate-180' : ''}`}
+                        />
                     </button>
                     <div
                         className={`overflow-hidden transition-all duration-300 ease-in-out ${

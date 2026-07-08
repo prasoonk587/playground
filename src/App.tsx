@@ -9,6 +9,7 @@ import { Home } from './pages/Home';
 import { ToastImplementation, ToastProvider } from './components/Toast';
 import { Assignment } from './components/Assignment';
 import { AccordionImplementation } from './components/Accordion';
+import { DesignSystem } from './pages/DesignSystem';
 import { ModalPage } from './components/Modal';
 import { OTPInput, OTPPage } from './components/OTPInput';
 import { RatingPage } from './components/Rating';
@@ -28,6 +29,7 @@ function App() {
                         <Route path="/logo-marque" element={<LogoMarque />} />
                         <Route path="/toast" element={<ToastImplementation />} />
                         <Route path="/accordion" element={<AccordionImplementation />} />
+                        <Route path="/design-system" element={<DesignSystem />} />
                         <Route path="/modal" element={<ModalPage />} />
                         <Route path="/otp" element={<OTPPage />} />
                         <Route path="/rating" element={<RatingPage />} />

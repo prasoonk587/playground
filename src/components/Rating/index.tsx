@@ -1,5 +1,5 @@
 import { FC, useCallback, useState } from 'react';
-import { Icon } from '../atoms/icon';
+import { Icon, IconName } from '../atoms/icon';
 
 interface RatingProps {
     value?: number;
@@ -27,11 +27,11 @@ export const Rating: FC<RatingProps> = ({ value = null, onChange }) => {
     }, []);
 
     const getIconName = useCallback(
-        (index: number): string => {
+        (index: number): IconName => {
             if (hoveredRating) {
-                return index + 1 <= hoveredRating ? 'filled' : 'outline';
+                return index + 1 <= hoveredRating ? 'star-filled' : 'star-outline';
             }
-            return ratingState && index + 1 <= ratingState ? 'filled' : 'outline';
+            return ratingState && index + 1 <= ratingState ? 'star-filled' : 'star-outline';
         },
         [hoveredRating, ratingState]
     );
@@ -46,7 +46,7 @@ export const Rating: FC<RatingProps> = ({ value = null, onChange }) => {
                     onMouseLeave={handleMouseLeave}
                     onClick={() => handleOnClick(index + 1)}
                 >
-                    <Icon key={index} name={`star-${getIconName(index)}`} size={32} />
+                    <Icon key={index} name={getIconName(index)} size={32} />
                 </div>
             ))}
         </div>
