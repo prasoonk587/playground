@@ -6,6 +6,7 @@ interface NavItem {
 }
 
 export const navItems: NavItem[] = [
+    { label: 'Design System', path: '/design-system' },
     { label: 'Todo List', path: '/todo' },
     { label: 'Tic Tac Toe', path: '/tictactoe' },
     { label: 'Autocomplete', path: '/autocomplete' },
