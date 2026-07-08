@@ -10,6 +10,7 @@ interface NavItem {
 }
 
 export const navItems: NavItem[] = [
+    { label: 'Home', path: '/' },
     { label: 'Design System', path: '/design-system' },
     { label: 'Todo List', path: '/todo' },
     { label: 'Tic Tac Toe', path: '/tictactoe' },
@@ -21,6 +22,7 @@ export const navItems: NavItem[] = [
     { label: 'Modal', path: '/modal' },
     { label: 'OTP Input', path: '/otp' },
     { label: 'Rating', path: '/rating' },
+    { label: 'Lazy Image', path: '/lazy-image' },
 ];
 
 export const Layout = () => {
