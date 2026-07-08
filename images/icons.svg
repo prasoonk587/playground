@@ -1,0 +1,24 @@
+<svg aria-hidden="true" style="position: absolute; width: 0; height: 0; overflow: hidden;" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<defs>
+    <symbol id="icon-star-filled" viewBox="0 0 34 32">
+<path stroke-linejoin="miter" stroke-linecap="butt" stroke-miterlimit="4" stroke-width="1.6842" d="M16.041 1.822c0.252-0.776 1.35-0.776 1.602 0l2.747 8.453c0.338 1.041 1.308 1.746 2.403 1.746h8.889c0.816 0 1.155 1.044 0.495 1.523l-7.191 5.224c-0.885 0.643-1.256 1.784-0.918 2.825l2.747 8.453c0.252 0.776-0.636 1.421-1.296 0.942l-7.191-5.225c-0.885-0.643-2.084-0.643-2.97 0l-7.191 5.225c-0.66 0.48-1.548-0.166-1.296-0.942l2.747-8.453c0.338-1.041-0.032-2.181-0.918-2.825l-7.191-5.224c-0.66-0.479-0.321-1.523 0.495-1.523h8.889c1.094 0 2.064-0.705 2.403-1.746l2.747-8.453z"></path>
+</symbol>
+    <symbol id="icon-star-outline" viewBox="0 0 34 32">
+        <path fill="none" stroke="currentColor" stroke-linejoin="miter" stroke-linecap="butt" stroke-miterlimit="4" stroke-width="2" d="M16.041 1.822c0.252-0.776 1.35-0.776 1.602 0l2.747 8.453c0.338 1.041 1.308 1.746 2.403 1.746h8.889c0.816 0 1.155 1.044 0.495 1.523l-7.191 5.224c-0.885 0.643-1.256 1.784-0.918 2.825l2.747 8.453c0.252 0.776-0.636 1.421-1.296 0.942l-7.191-5.225c-0.885-0.643-2.084-0.643-2.97 0l-7.191 5.225c-0.66 0.48-1.548-0.166-1.296-0.942l2.747-8.453c0.338-1.041-0.032-2.181-0.918-2.825l-7.191-5.224c-0.66-0.479-0.321-1.523 0.495-1.523h8.889c1.094 0 2.064-0.705 2.403-1.746l2.747-8.453z"></path>
+    </symbol>
+    <symbol id="icon-chevron-down" viewBox="0 0 24 24">
+        <path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+    </symbol>
+    <symbol id="icon-spinner" viewBox="0 0 24 24">
+        <circle opacity="0.25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4" fill="none" />
+        <path opacity="0.75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z" />
+    </symbol>
+    <symbol id="icon-sun" viewBox="0 0 24 24">
+        <circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+        <path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" d="M12 2v2M12 20v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M2 12h2M20 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42" />
+    </symbol>
+    <symbol id="icon-moon" viewBox="0 0 24 24">
+        <path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
+    </symbol>
+</defs>
+</svg>
