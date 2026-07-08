@@ -50,7 +50,7 @@ export const Toggle: FC<ToggleProps> = ({
                     />
                 </span>
             </span>
-            {label && <span className="text-sm text-neutral-700">{label}</span>}
+            {label && <span className="text-sm text-foreground">{label}</span>}
         </label>
     );
 };

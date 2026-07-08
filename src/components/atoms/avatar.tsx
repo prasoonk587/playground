@@ -46,7 +46,7 @@ export const Avatar: FC<AvatarProps> = ({
 
     return (
         <span
-            className={`inline-flex items-center justify-center shrink-0 font-medium select-none overflow-hidden bg-neutral-200 text-neutral-700 ${sizeStyles[size]} ${shapeStyles[shape]} ${className}`}
+            className={`inline-flex items-center justify-center shrink-0 font-medium select-none overflow-hidden bg-muted text-muted-foreground ${sizeStyles[size]} ${shapeStyles[shape]} ${className}`}
             {...props}
         >
             {showImage ? (
