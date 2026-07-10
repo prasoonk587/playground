@@ -1,1 +1,12 @@
 npx lint-staged
+
+# Run Claude commit-reviewer sub-agent on staged changes.
+# Skip with: SKIP_REVIEW=1 git commit
+if [ -z "$SKIP_REVIEW" ]; then
+  echo ""
+  echo "🔍 Running commit review..."
+  claude -p "Review the staged changes before I commit." \
+    --agent commit-reviewer \
+    --no-interactive 2>/dev/null || true
+  echo ""
+fi
