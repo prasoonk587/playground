@@ -1,3 +1,4 @@
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import { AutoComplete } from './components/AutoComplete';
 import { Layout } from './components/Layout';
@@ -15,30 +16,34 @@ import { OTPInput, OTPPage } from './components/OTPInput';
 import { RatingPage } from './components/Rating';
 import { LazyImagePage } from './components/LazyImage';
 
+const queryClient = new QueryClient();
+
 function App() {
-    // return <Assignment />;
     return (
-        <ToastProvider>
-            <BrowserRouter basename={process.env.PUBLIC_URL}>
-                <Routes>
-                    <Route path="/" element={<Home />} />
-                    <Route element={<Layout />}>
-                        <Route path="/todo" element={<TodoList />} />
-                        <Route path="/tictactoe" element={<TicTacToe />} />
-                        <Route path="/autocomplete" element={<AutoComplete />} />
-                        <Route path="/virtual-list" element={<VirtualListImplementation />} />
-                        <Route path="/logo-marque" element={<LogoMarque />} />
-                        <Route path="/toast" element={<ToastImplementation />} />
-                        <Route path="/accordion" element={<AccordionImplementation />} />
-                        <Route path="/design-system" element={<DesignSystem />} />
-                        <Route path="/modal" element={<ModalPage />} />
-                        <Route path="/otp" element={<OTPPage />} />
-                        <Route path="/rating" element={<RatingPage />} />
-                        <Route path="/lazy-image" element={<LazyImagePage />} />
-                    </Route>
-                </Routes>
-            </BrowserRouter>
-        </ToastProvider>
+        <QueryClientProvider client={queryClient}>
+            <ToastProvider>
+                <BrowserRouter basename={process.env.PUBLIC_URL}>
+                    <Routes>
+                        <Route path="/" element={<Home />} />
+                        <Route path="/assignment" element={<Assignment />} />
+                        <Route element={<Layout />}>
+                            <Route path="/todo" element={<TodoList />} />
+                            <Route path="/tictactoe" element={<TicTacToe />} />
+                            <Route path="/autocomplete" element={<AutoComplete />} />
+                            <Route path="/virtual-list" element={<VirtualListImplementation />} />
+                            <Route path="/logo-marque" element={<LogoMarque />} />
+                            <Route path="/toast" element={<ToastImplementation />} />
+                            <Route path="/accordion" element={<AccordionImplementation />} />
+                            <Route path="/design-system" element={<DesignSystem />} />
+                            <Route path="/modal" element={<ModalPage />} />
+                            <Route path="/otp" element={<OTPPage />} />
+                            <Route path="/rating" element={<RatingPage />} />
+                            <Route path="/lazy-image" element={<LazyImagePage />} />
+                        </Route>
+                    </Routes>
+                </BrowserRouter>
+            </ToastProvider>
+        </QueryClientProvider>
     );
 }
 

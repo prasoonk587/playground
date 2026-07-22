@@ -29,7 +29,11 @@ export const AutoComplete = () => {
         const abortController = new AbortController();
         const fetchProducts = async () => {
             setLoading(true);
-            const apiEndPoint = 'https://dummyjson.com/products/search?q=';
+            const apiEndPoint = new URL('https://dummyjson.com/products/search');
+            if (currentValue) {
+                apiEndPoint.searchParams.set('q', currentValue?.toString());
+            }
+
             try {
                 const response = await fetch(`${apiEndPoint}${currentValue}`, {
                     signal: abortController.signal,

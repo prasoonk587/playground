@@ -1,7 +1,3 @@
 export const Assignment = () => {
-    return (
-        <div>
-            <p>This is react Assignment</p>
-        </div>
-    );
+    return <div>This is assignment</div>;
 };
